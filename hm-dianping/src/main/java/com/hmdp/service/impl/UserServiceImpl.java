@@ -15,6 +15,7 @@ import com.hmdp.entity.User;
 import com.hmdp.mapper.UserMapper;
 import com.hmdp.service.IUserService;
 import com.hmdp.utils.RegexUtils;
+import com.hmdp.utils.UserHolder;
 import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -113,5 +114,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
         //返回token
         return Result.ok(token);
+    }
+
+    @Override
+    public Result logout() {
+        //用户登出
+        UserHolder.removeUser();
+        return Result.ok();
     }
 }
