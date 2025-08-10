@@ -31,5 +31,5 @@ public interface IUserService extends IService<User> {
      * @param session
      * @return
      */
-    Object login(LoginFormDTO loginForm, HttpSession session);
+    Result login(LoginFormDTO loginForm, HttpSession session);
 }
